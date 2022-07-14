@@ -37,12 +37,12 @@ public class MatchService {
         battingTeam.addNoBallRun(score.getNoBall());
         battingTeam.addWideBallRun(score.getWideBall());
         battingTeam.addPlayerRun(score.getRun(), score.getSix(), score.getFour());
-        if(score.getRun()%2 == 1)
-            changeStrike();
-
         boolean itsBall = !score.getNoBall() && !score.getWideBall();
         if(itsBall)
             battingTeam.increasePlayerBall();
+
+        if(score.getRun()%2 == 1)
+            changeStrike();
         return itsBall;
     }
 
